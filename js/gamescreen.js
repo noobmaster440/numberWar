@@ -11,6 +11,10 @@ const main = () => {
   setInterval(() => {
     ninjas.forEach((ninja, i) => {
       speed[i] += Math.random() * 10;
+      if(speed[currDiv]>90){
+        alert("Game Over!!!")
+        return
+      }
       ninja.style.marginLeft = `${speed[i]}%`;
     });
   }, 1000);
