@@ -1,22 +1,13 @@
 let currDiv = 3;
 const main = () => {
-  document.getElementById(`enemy${currDiv}`).innerHTML = `
-  <div class="enemylimit">
-  <div class="visual" id="enemy1">
-    <img src="../assets/ninja.png" alt="ninja" />
-  </div>
-  <div class="player">
-    <img src="../assets/alien.png" alt="alien" />
-  </div>
-</div>
-  `;
-  let ninjas = document.querySelectorAll(".visual");
+  document.getElementById(
+    `psec${currDiv}`
+  ).innerHTML = `<img src="../assets/alien.png" alt="alien" />`;
+  let ninjas = document.querySelectorAll(".enemylimit");
   let speed = new Array(5);
-
   for (let i = 0; i < 5; i++) {
     speed[i] = Math.floor(Math.random() * 10);
   }
-
   setInterval(() => {
     ninjas.forEach((ninja, i) => {
       speed[i] += Math.random() * 10;
@@ -28,43 +19,16 @@ const main = () => {
 
 const keyPressed = (event) => {
   if (event.keyCode === 40) {
-    document.getElementById(`enemy${currDiv}`).innerHTML = `
-    <div class="enemylimit">
-      <div class="visual">
-        <img src="../assets/ninja.png" alt="ninja" />
-      </div>
-    </div>
-    `;
+    document.getElementById(`psec${currDiv}`).innerHTML = ``;
     currDiv += 1;
-    document.getElementById(`enemy${currDiv}`).innerHTML = `
-    <div class="enemylimit">
-        <div class="visual">
-          <img src="../assets/ninja.png" alt="ninja" />
-        </div>
-        <div class="player">
-          <img src="../assets/alien.png" alt="alien" />
-        </div>
-    </div>
-    `;
+    document.getElementById(`psec${currDiv}`).innerHTML = `
+      <img src="../assets/alien.png" alt="alien" />
+`;
   } else if (event.keyCode === 38) {
-    document.getElementById(`enemy${currDiv}`).innerHTML = `
-    <div class="enemylimit">
-      <div class="visual">
-        <img src="../assets/ninja.png" alt="ninja" />
-      </div>
-    </div>
-    `;
-
+    document.getElementById(`psec${currDiv}`).innerHTML = ``;
     currDiv -= 1;
-    document.getElementById(`enemy${currDiv}`).innerHTML = `
-    <div class="enemylimit">
-        <div class="visual">
-          <img src="../assets/ninja.png" alt="ninja" />
-        </div>
-        <div class="player">
-          <img src="../assets/alien.png" alt="alien" />
-        </div>
-    </div>
+    document.getElementById(`psec${currDiv}`).innerHTML = `
+        <img src="../assets/alien.png" alt="alien" />
     `;
     console.log("arrow up pressed");
   }
