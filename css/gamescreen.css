@@ -1,5 +1,5 @@
 body img {
-  width: 100px;
+  width: 80px;
 }
 
 .main{
@@ -11,7 +11,12 @@ body img {
   height: 150px;
 }
 
-.player{
-  height:150px
+.playerbox{
+  height:130px
 }
 
+.playerbox h3{
+  text-align: center;
+  /* margin-bottom: 0px; */
+  margin-right: 70px;
+}
