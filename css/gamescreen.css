@@ -1,11 +1,23 @@
 body img {
-  width: 5%;
+  width: 100px;
 }
 
-.visual {
-  /* border: aqua 3px solid; */
-  height: 120px;
+.enemylimit {
+  height: 150px;
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  column-gap: 50px;
 }
-player {
-  margin-left: 1200px;
-}
+
+ /* player {  */
+  /* margin-left: 1200px;  */
+  /* margin-top: auto; */
+  /* margin-top: 20px; */
+  /* width:110%; */
+ /* }  */
+/* 
+.main{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: auto 18%;
+} */
