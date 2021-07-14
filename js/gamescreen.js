@@ -56,6 +56,7 @@ document.querySelector(".img-audio").addEventListener("click", () => {
 //click event of the back icon
 document.querySelector(".img-back").addEventListener("click", () => {
   updateAudio()
+  alert("Quit Game ?")
   localStorage.removeItem("name")
   window.location.replace("../html/index.html")
 })
@@ -90,8 +91,8 @@ const main = () => {
     ninjas.forEach((ninja, i) => {
       speed[i] += Math.random() * 10;
       if (speed[currDiv] > 83) {
-        alert("Game Over!!!");
-        location.reload()
+        // alert("Game Over!!!");
+        gameOver()
       }
       ninja.style.marginLeft = `${speed[i]}%`;
     });
@@ -104,7 +105,7 @@ const main = () => {
       document.querySelector(".display h2").innerText = `Timer: ${time}`
     }
 
-  }, 10000);
+  }, 1000);
   document.querySelector(".levels").innerText = `Level: ${level}`
   window.addEventListener("keydown", keyPressed);
   generateQues();

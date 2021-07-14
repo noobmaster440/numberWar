@@ -95,3 +95,4 @@ document.querySelector("#btn-load").addEventListener("click", () => {
     updateAudio()
 })
 
+// localStorage.clear()

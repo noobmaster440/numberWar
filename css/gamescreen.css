@@ -5,7 +5,7 @@
 }
 
 html { 
-  background: url("/assets/bg.jpeg") no-repeat center center fixed; 
+  background: url("/assets/bg2.jpeg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -35,7 +35,14 @@ body img {
   text-align: center;
   /* margin-bottom: 0px; */
   margin-right: 70px;
+  color: aliceblue;
 }
+
+.visual h3 {
+  color: white;
+  font-weight: 900;
+}
+
 .gunshot {
   /* z-index: -1;
   position: absolute; */
