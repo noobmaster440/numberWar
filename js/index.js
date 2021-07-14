@@ -52,8 +52,16 @@ document.querySelector(".img-audio").addEventListener("click", () => {
     updateAudio()
 })
 
+//click event when start button is pressed
+document.querySelector("#btn-start").addEventListener("click", () => {
+    window.location.replace("/html/gamescreen.html")
+    updateAudio()
+})
+
 //click event when rules button is pressed
 document.querySelector("#btn-rules").addEventListener("click", () => {
     window.location.replace("/html/rules.html")
     updateAudio()
 })
+
+

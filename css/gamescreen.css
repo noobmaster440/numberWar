@@ -1,3 +1,19 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html { 
+  background: url("/assets/bg.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
 body img {
   width: 80px;
 }
@@ -26,4 +42,47 @@ body img {
   border-top: 6px solid rgb(212, 112, 18);
   border-bottom: 6px solid rgb(212, 112, 18);
 
+}
+
+.header-img {
+  margin-top: 0.5%;
+  width: 3%;
+}
+
+.img-back {
+  margin-left: 0.5%;
+}
+
+.img-audio {
+  float: right;
+  margin-right: 0.5%;
+}
+
+.header-img:hover {
+  transition: ease;
+  width: 4%;
+  cursor: pointer;
+}
+
+.display h2{
+  position: absolute;
+  text-align: center;
+  padding: 0.4%;
+  background-color: white;
+}
+
+.time {
+  border: 2px solid palevioletred;
+  padding: 3%;
+  border-radius: 10px;
+  left: 0.5%;
+  bottom: 0.5%;
+}
+
+.levels {
+  border: 2px solid green;
+  padding: 3%;
+  border-radius: 10px;
+  right: 4%;
+  bottom: 0.5%;
 }

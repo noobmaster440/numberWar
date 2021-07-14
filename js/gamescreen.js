@@ -2,29 +2,110 @@ let currDiv = 3;
 let correctColumn;
 let correctAnswer;
 let ninjas;
-const main = () => {
-  document.getElementById(
-    `psec${currDiv}`
-  ).innerHTML = `<img src="../assets/alien.png" alt="alien" />`;
+let speed
+let level = 1
+let time
+let isMuted
 
-  ninjas = document.querySelectorAll(".enemylimit");
-  let speed = new Array(5);
+//loads the audio
+const loadAudio = () => {
+  if (localStorage.hasOwnProperty("audio")) {
+      let audio = JSON.parse(localStorage.getItem("audio"))
+      document.querySelector("audio").currentTime = audio.audioTime    
+      document.querySelector("audio").play  
+      if (audio.isMuted) {
+          isMuted = true
+          document.querySelector("audio").muted = true 
+          document.querySelector(".img-audio").src = "../assets/mute.png"
+      }  
+      else {
+          isMuted = false
+          document.querySelector("audio").muted = false 
+          document.querySelector(".img-audio").src = "../assets/volume.png"
+      }
+  }
+}
+
+//updates the audio
+const updateAudio = () => {
+  let audio = {
+      audioTime: document.querySelector("audio").currentTime,
+      isMuted: isMuted
+  }
+  localStorage.setItem("audio", JSON.stringify(audio))
+}
+
+//functions on load event of the page
+loadAudio()
+
+document.querySelector(".img-audio").addEventListener("click", () => {
+  if (isMuted === false) {
+      document.querySelector(".img-audio").src = "../assets/mute.png"
+      isMuted = true
+      document.querySelector("audio").muted = true        
+  }
+  else {
+      document.querySelector(".img-audio").src = "../assets/volume.png"
+      isMuted = false
+      document.querySelector("audio").muted = false
+  }
+  updateAudio()
+})
+
+//click event of the back icon
+document.querySelector(".img-back").addEventListener("click", () => {
+  window.location.replace("../html/index.html")
+  updateAudio()
+})
+
+
+const resetNinja = () => {
+  generateSpeed()
+  let ninjas = document.querySelectorAll(".enemylimit")
+  // let imageDiv = document.querySelectorAll(".ufo")
+      ninjas.forEach((ninja, index) => {
+          ninja.style.marginLeft = `2%`
+      })
+}
+
+const generateSpeed = () => {
+  speed = new Array(5);
   for (let i = 0; i < 5; i++) {
     speed[i] = Math.floor(Math.random() * 10);
   }
-  setInterval(() => {
+}
+
+
+const main = () => {
+  time = 60
+  document.getElementById(
+    `psec${currDiv}`
+  ).innerHTML = `<img src="../assets/alien.png" alt="alien" />`;
+  ninjas = document.querySelectorAll(".enemylimit");
+  generateSpeed()
+  calculateTime = setInterval(() => {
+    time -= 1
     ninjas.forEach((ninja, i) => {
       speed[i] += Math.random() * 10;
-      if (speed[currDiv] > 90) {
+      if (speed[currDiv] > 83) {
         alert("Game Over!!!");
-        return;
+        location.reload()
       }
       ninja.style.marginLeft = `${speed[i]}%`;
     });
+
+    if (time <= 0) {
+      clearInterval(calculateTime)
+      alert("Game Over!!!")
+      location.reload()
+    }
+    else {
+      document.querySelector(".display h2").innerText = `Timer: ${time}`
+    }
+
   }, 10000);
-
+  document.querySelector(".levels").innerText = `Level: ${level}`
   window.addEventListener("keydown", keyPressed);
-
   generateQues();
 };
 
@@ -39,7 +120,7 @@ const generateQues = () => {
   }
   let h3s = document.querySelectorAll(".visual h3");
   h3s.forEach((h3, index) => {
-    h3.innerText = `${firstVal[index]} X ${secondVal[index]} = ?`;
+    h3.innerText = `${firstVal[index]} * ${secondVal[index]} = ?`;
   });
   correctColumn = Math.floor(Math.random() * 5);
   correctAnswer = firstVal[correctColumn] * secondVal[correctColumn];
@@ -109,11 +190,19 @@ const keyPressed = (event) => {
     setTimeout(function () {
       unshowFire();
       if (currDiv === correctColumn + 1) {
-        alert("you won");
+        level += 1
+        if(level > 5) {
+          alert("you won")
+          return
+        }
+        generateQues()
+        resetNinja()
       } else if (currDiv !== correctColumn + 1) {
-        alert("You lost");
+        alert("Game Over!!!");
       }
-      
+
+      document.querySelector(".levels").innerText = `Level: ${level}`
+
     }, 100);
   }
 };
