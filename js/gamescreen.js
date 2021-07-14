@@ -56,11 +56,18 @@ const unshowFire = () => {
 };
 
 const keyPressed = (event) => {
+  console.log("i am entering from keypressed")
+
   if (event.keyCode === 40) {
+    if (currDiv >=5) {
+      console.log("i am exiting from keypressed")
+      return;
+    }
     document.getElementById(`psec${currDiv}`).innerHTML = ``;
     console.log(document.querySelectorAll(".playersec h3")[currDiv].innerText);
     document.querySelectorAll(".playersec h3")[currDiv - 1].innerText = ``;
     if (currDiv >=5) {
+      console.log("i am exiting from keypressed")
       return;
     } else {
       currDiv = currDiv + 1;
@@ -72,9 +79,16 @@ const keyPressed = (event) => {
     document.querySelectorAll(".playersec h3")[currDiv - 1].innerText =
       correctAnswer;
   } else if (event.keyCode === 38) {
+    if (currDiv <=1) {
+      console.log("i am exiting from keypressed")
+
+      return;
+    }
     document.getElementById(`psec${currDiv}`).innerHTML = ``;
     document.querySelectorAll(".playersec h3")[currDiv - 1].innerText = ``;
     if (currDiv <=1) {
+      console.log("i am exiting from keypressed")
+
       return;
     } else {
       currDiv = currDiv - 1;
