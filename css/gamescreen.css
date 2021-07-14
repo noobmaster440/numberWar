@@ -1,0 +1,29 @@
+body img {
+  width: 80px;
+}
+
+.main{
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+}
+
+.enemylimit {
+  height: 150px;
+}
+
+.playerbox{
+  height:130px
+}
+
+.playerbox h3{
+  text-align: center;
+  /* margin-bottom: 0px; */
+  margin-right: 70px;
+}
+.gunshot {
+  /* z-index: -1;
+  position: absolute; */
+  border-top: 6px solid rgb(212, 112, 18);
+  border-bottom: 6px solid rgb(212, 112, 18);
+
+}
