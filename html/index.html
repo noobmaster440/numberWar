@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spacex Game</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SpaceX Number War</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <main>
-        <h1>Are you ready to Play?</h1>
+    <img class="img-audio" src="" alt="No Image Available">
+    <div class="main-container">
+        <h1>SpaceX Number War</h1>
         <input type="text" id="name" placeholder="Enter your name">
-        <select name="difficulty" id="difficulty">
-            <option value="Easy">Easy</option>
-            <option value="Hard">Hard</option>
-        </select>
-        <a class="disabled" id="link">Let's play the game</a>
-    </main>
-    <script src="app.js"></script>
+        <button id="btn-start"> Start </button>
+        <button id="btn-rules"> View Rules </button>
+        <button id="btn-load"> High Scores </button>
+    </div>
+    <audio loop src="../audio/sound.mp3" autoplay></audio>
+    <script src="../js/index.js"></script>
 </body>
 </html>
