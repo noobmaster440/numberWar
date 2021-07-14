@@ -7,6 +7,7 @@ let level = 1
 let time
 let isMuted
 
+
 //loads the audio
 const loadAudio = () => {
   if (localStorage.hasOwnProperty("audio")) {
@@ -54,8 +55,9 @@ document.querySelector(".img-audio").addEventListener("click", () => {
 
 //click event of the back icon
 document.querySelector(".img-back").addEventListener("click", () => {
-  window.location.replace("../html/index.html")
   updateAudio()
+  localStorage.removeItem("name")
+  window.location.replace("../html/index.html")
 })
 
 
@@ -96,8 +98,7 @@ const main = () => {
 
     if (time <= 0) {
       clearInterval(calculateTime)
-      alert("Game Over!!!")
-      location.reload()
+      gameOver()
     }
     else {
       document.querySelector(".display h2").innerText = `Timer: ${time}`
@@ -192,13 +193,12 @@ const keyPressed = (event) => {
       if (currDiv === correctColumn + 1) {
         level += 1
         if(level > 5) {
-          alert("you won")
-          return
+          gameOver()
         }
         generateQues()
         resetNinja()
       } else if (currDiv !== correctColumn + 1) {
-        alert("Game Over!!!");
+        gameOver()
       }
 
       document.querySelector(".levels").innerText = `Level: ${level}`
@@ -206,5 +206,35 @@ const keyPressed = (event) => {
     }, 100);
   }
 };
+
+
+
+//finishes the game
+const gameOver = () => {
+  updateAudio()
+  const gameProfile = {
+      level: level
+  }
+  localStorage.setItem("gameProfile", JSON.stringify(gameProfile))
+  saveHighScore()
+  window.location.replace("../html/gameProfile.html")
+}
+
+const highScores = JSON.parse(localStorage.getItem("highScores")) || []
+const saveHighScore = () => {
+  updateAudio()
+  let userName = localStorage.getItem("name")
+  const score = {
+    level: level,
+    userName: userName
+  }
+  
+  highScores.push(score)
+  highScores.sort((a,b) => {
+    return b.level - a.level
+  })
+  highScores.splice(5)
+  localStorage.setItem("highScores", JSON.stringify(highScores))
+}
 
 main();

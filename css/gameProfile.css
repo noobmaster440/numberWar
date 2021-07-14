@@ -1,0 +1,121 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html { 
+    background: url("/assets/bg.jpeg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+
+div {
+    border-radius: 10px;
+    background-color:white;;
+    opacity: 0.8;
+    position: absolute;
+}
+
+.main-container {
+    padding: 1.5%;
+    height: auto;
+    width: 25%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    /* color: white;
+    font-family: Arial, Helvetica, sans-serif; */
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px; 
+    margin-top: 2%;
+}
+
+hr {
+    margin-top: 2%;
+}
+
+h2 {
+    margin-top: 2%;
+    margin-left: 2%;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#player-name {
+    text-transform: capitalize;
+    color: chocolate;
+}
+
+#levels {
+    color: green;
+}
+
+img {
+    margin-top: 0.5%;
+    width: 3%;
+}
+
+.img-home {
+    margin-left: 0.5%;
+}
+
+.img-audio {
+    float: right;
+    margin-right: 0.5%;
+}
+
+img:hover {
+    transition: ease;
+    width: 4%;
+    cursor: pointer;
+}
+
+button {
+    color: black;
+    width: 100%;
+    display: block;
+    background: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 3px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 5%;
+}
+
+#btn-load {
+    background-color: white; 
+    color: #d92964; 
+    border: 1px solid #d92964;
+  }
+  
+  #btn-load:hover {
+    background: linear-gradient(to right, #9a22c3, #fd2d2d);
+    color: white;
+  }
+  
+  #btn-start {
+    background-color: white; 
+    color: #17B169; 
+    border: 1px solid #17B169;
+  }
+  
+  #btn-start:hover {
+    background: linear-gradient(to right, #32de80, #00867b);
+    color: white;
+  }

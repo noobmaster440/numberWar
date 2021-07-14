@@ -117,6 +117,10 @@ button {
   color: white;
 }
 
+.disabled:hover {
+  color: white;
+}
+
 /* button:hover {
   cursor: pointer;
   background-color: palevioletred;

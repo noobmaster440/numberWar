@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player High Scores</title>
-    <link rel="stylesheet" href="../css/highscores.css">
+    <title>Player Game Profile</title>
+    <link rel="stylesheet" href="../css/gameProfile.css">
 </head>
 <body>
     <img class="img-home" src="../assets/home.png" alt="No Image Available">
     <img class="img-audio" src="" alt="No Image Available">
     <div class="main-container">
-        <h1>High Scores !</h1>
+        <h1>Player Game Score</h1>
         <hr>
-        <ol id="highScoresList"></ol>
-        <!-- <h2>Name: <span id="player-name"></span></h2>
-        <h2>Level: <span id="levels"></span></h2> -->
+        <h1 id="result"></h1>
+        <h2>Name: <span id="player-name"></span></h2>
+        <h2>Level: <span id="levels"></span></h2>
+        <button class="disbaled" id="btn-start"> Play Again</button>
+        <button id="btn-load"> High Scores </button>
     </div>
     <audio loop src="../audio/sound.mp3" autoplay></audio>
-    <script src="../js/highscores.js"></script>
+    <script src="../js/gameProfile.js"></script>
 </body>
 </html>

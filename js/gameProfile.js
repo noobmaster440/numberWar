@@ -1,13 +1,15 @@
 //variables
 let isMuted
+let result
 let playerName
-let startBtn
 
+//functions
 //loads the audio
 const loadAudio = () => {
     if (localStorage.hasOwnProperty("audio")) {
         let audio = JSON.parse(localStorage.getItem("audio"))
-        document.querySelector("audio").currentTime = audio.audioTime      
+        document.querySelector("audio").currentTime = audio.audioTime    
+        document.querySelector("audio").play  
         if (audio.isMuted) {
             isMuted = true
             document.querySelector("audio").muted = true 
@@ -18,11 +20,6 @@ const loadAudio = () => {
             document.querySelector("audio").muted = false 
             document.querySelector(".img-audio").src = "../assets/volume.png"
         }
-    }
-    else {
-        isMuted = false
-        document.querySelector("audio").muted = false 
-        document.querySelector(".img-audio").src = "../assets/volume.png"
     }
 }
 
@@ -35,9 +32,26 @@ const updateAudio = () => {
     localStorage.setItem("audio", JSON.stringify(audio))
 }
 
+//shows the player game score
+const showPlayerScore = () => {
+    playerName = localStorage.getItem("name")
+    const jsonData = JSON.parse(localStorage.getItem("gameProfile"))
+    const level = jsonData.level
+    if (level === 5){
+        result = "You Won !!"
+    }
+    else{
+        result = "You Lost !!"
+    }
+    document.querySelector("#result").innerText = result
+    document.querySelector("#player-name").innerText = playerName
+    document.querySelector("#levels").innerText = level
+}
+
 //functions on load event of the page
 loadAudio()
-  
+showPlayerScore()
+
 //click listeners
 //click event of the audio icon
 document.querySelector(".img-audio").addEventListener("click", () => {
@@ -54,39 +68,20 @@ document.querySelector(".img-audio").addEventListener("click", () => {
     updateAudio()
 })
 
-
-// document.querySelector("#name").addEventListener("keyup", () => {
-//     playerName = document.querySelector("#name").value
-//     startBtn = document.getElementById("btn-start")
-//     if (playerName.length != 0) {
-//         startBtn.removeAttribute("class")
-//         startBtn.setAttribute("href", "../html/gamescreen.html")
-//     }  
-//     else {
-//         startBtn.setAttribute("class", "disabled")
-//         startBtn.removeAttribute("href")
-//     }
-// })
-
-
-//click event when start button is pressed
-document.querySelector("#btn-start").addEventListener("click", () => {
-    playerName = document.querySelector("#name").value
-    if (playerName.length != 0) {
-        localStorage.setItem("name", playerName)
-        window.location.replace("/html/gamescreen.html")
-        updateAudio()
-    }
-    else {
-        alert("Please enter name")
-    }
+//click event of the back icon
+document.querySelector(".img-home").addEventListener("click", () => {
+    updateAudio()
+    // localStorage.removeItem("gameSummary")
+    // localStorage.removeItem("name")
+    window.location.replace("../html/index.html")
     
 })
 
-//click event when rules button is pressed
-document.querySelector("#btn-rules").addEventListener("click", () => {
-    window.location.replace("/html/rules.html")
-    updateAudio()
+//click event when play again button is pressed
+document.querySelector("#btn-start").addEventListener("click", () => {
+        localStorage.setItem("name", playerName)
+        window.location.replace("/html/gamescreen.html")
+        updateAudio()
 })
 
 //click event when highscores button is pressed
