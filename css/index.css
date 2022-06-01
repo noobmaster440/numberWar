@@ -5,7 +5,7 @@
 }
 
 html { 
-  background: url("/assets/bg.jpeg") no-repeat center center fixed; 
+  background: url("../assets/bg.jpeg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -44,15 +44,12 @@ img:hover {
 h1 {
   font-size: 30px; 
   cursor: default;
-  /* text-transform: uppercase; */
   text-align: center;
   color: rosybrown;
-  /* font-family: 'Courier New', Courier, monospace; */
 }
 
 input {
   width: 100%;
-  /* border-width: 0; */
   border-radius: 5px;
   font-size: 16px;
   margin-top: 7%;
@@ -121,10 +118,6 @@ button {
   color: white;
 }
 
-/* button:hover {
-  cursor: pointer;
-  background-color: palevioletred;
-} */
 
 .disabled {
   background-color: white;

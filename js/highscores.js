@@ -11,12 +11,12 @@ const loadAudio = () => {
         if (audio.isMuted) {
             isMuted = true
             document.querySelector("audio").muted = true 
-            document.querySelector(".img-audio").src = "../assets/mute.png"
+            document.querySelector(".img-audio").src = "assets/mute.png"
         }  
         else {
             isMuted = false
             document.querySelector("audio").muted = false 
-            document.querySelector(".img-audio").src = "../assets/volume.png"
+            document.querySelector(".img-audio").src = "assets/volume.png"
         }
     }
 }
@@ -37,12 +37,12 @@ loadAudio()
 //click event of the audio icon
 document.querySelector(".img-audio").addEventListener("click", () => {
     if (isMuted === false) {
-        document.querySelector(".img-audio").src = "../assets/mute.png"
+        document.querySelector(".img-audio").src = "assets/mute.png"
         isMuted = true
         document.querySelector("audio").muted = true        
     }
     else {
-        document.querySelector(".img-audio").src = "../assets/volume.png"
+        document.querySelector(".img-audio").src = "assets/volume.png"
         isMuted = false
         document.querySelector("audio").muted = false
     }
@@ -52,9 +52,7 @@ document.querySelector(".img-audio").addEventListener("click", () => {
 //click event of the back icon
 document.querySelector(".img-home").addEventListener("click", () => {
     updateAudio()
-    // localStorage.removeItem("gameSummary")
-    // localStorage.removeItem("name")
-    window.location.replace("../html/index.html")
+    window.location.replace("index.html")
     
 })
 

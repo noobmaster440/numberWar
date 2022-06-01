@@ -17,12 +17,12 @@ const loadAudio = () => {
       if (audio.isMuted) {
           isMuted = true
           document.querySelector("audio").muted = true 
-          document.querySelector(".img-audio").src = "../assets/mute.png"
+          document.querySelector(".img-audio").src = "assets/mute.png"
       }  
       else {
           isMuted = false
           document.querySelector("audio").muted = false 
-          document.querySelector(".img-audio").src = "../assets/volume.png"
+          document.querySelector(".img-audio").src = "assets/volume.png"
       }
   }
 }
@@ -41,12 +41,12 @@ loadAudio()
 
 document.querySelector(".img-audio").addEventListener("click", () => {
   if (isMuted === false) {
-      document.querySelector(".img-audio").src = "../assets/mute.png"
+      document.querySelector(".img-audio").src = "assets/mute.png"
       isMuted = true
       document.querySelector("audio").muted = true        
   }
   else {
-      document.querySelector(".img-audio").src = "../assets/volume.png"
+      document.querySelector(".img-audio").src = "assets/volume.png"
       isMuted = false
       document.querySelector("audio").muted = false
   }
@@ -58,7 +58,7 @@ document.querySelector(".img-back").addEventListener("click", () => {
   updateAudio()
   alert("Quit Game ?")
   localStorage.removeItem("name")
-  window.location.replace("../html/index.html")
+  window.location.replace("index.html")
 })
 
 
@@ -83,7 +83,7 @@ const main = () => {
   time = 60
   document.getElementById(
     `psec${currDiv}`
-  ).innerHTML = `<img src="../assets/alien.png" alt="alien" />`;
+  ).innerHTML = `<img src="assets/alien.png" alt="alien" />`;
   ninjas = document.querySelectorAll(".enemylimit");
   generateSpeed()
   calculateTime = setInterval(() => {
@@ -123,6 +123,7 @@ const generateQues = () => {
   let h3s = document.querySelectorAll(".visual h3");
   h3s.forEach((h3, index) => {
     h3.innerText = `${firstVal[index]} * ${secondVal[index]} = ?`;
+    console.log(h3)
   });
   correctColumn = Math.floor(Math.random() * 5);
   correctAnswer = firstVal[correctColumn] * secondVal[correctColumn];
@@ -157,7 +158,7 @@ const keyPressed = (event) => {
     }
     console.log(currDiv + " upayed ");
     document.getElementById(`psec${currDiv}`).innerHTML = `
-      <img src="../assets/alien.png" alt="alien" />
+      <img src="assets/alien.png" alt="alien" />
     `;
     document.querySelectorAll(".playersec h3")[currDiv - 1].innerText =
       correctAnswer;
@@ -179,7 +180,7 @@ const keyPressed = (event) => {
     console.log(currDiv);
 
     document.getElementById(`psec${currDiv}`).innerHTML = `
-        <img src="../assets/alien.png" alt="alien" />
+        <img src="assets/alien.png" alt="alien" />
     `;
     document.querySelectorAll(".playersec h3")[currDiv - 1].innerText =
       correctAnswer;
@@ -218,7 +219,7 @@ const gameOver = () => {
   }
   localStorage.setItem("gameProfile", JSON.stringify(gameProfile))
   saveHighScore()
-  window.location.replace("../html/gameProfile.html")
+  window.location.replace("gameProfile.html")
 }
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || []

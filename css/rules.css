@@ -4,7 +4,7 @@
 }
 
 html { 
-    background: url("/assets/bg.jpeg") no-repeat center center fixed; 
+    background: url("../assets/bg1.jpeg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -12,11 +12,6 @@ html {
     font-family: 'Courier New', Courier, monospace;
   }
 
-/* body {
-    background-image: url("/assets/background.jpg"); 
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
 
 div {
     border-radius: 10px;
@@ -32,8 +27,6 @@ div {
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
-    /* color: white; */
-    /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 h1 {

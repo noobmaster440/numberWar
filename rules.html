@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=jacinto.design">
+        <link rel="stylesheet" href="css/rules.css">
+        <title>Rules - SpaceX Number War</title>
+    </head>
+    <body>
+        <img class="img-back" src="assets/back.png" alt="No Image Available">
+        <img class="img-audio" src="" alt="No Image Available">
+        <div class="main-container">
+            <h1>Rules of Game</h1>
+            <ol>
+                <li>To start the game, each player has to enter the name </li>
+                <li>There will be a total of 5 Ninjas moving right from left at slightly different speeds than each other</li>
+                <li>Every ninja has a simple arithmetic question and player has to solve it as per the product written on user-player placed on the right</li>
+                <li>Player can move up or down using UP, DOWN Arrow Keys. Pressing Space Bar defeats the Ninja</li>
+                <li>Every time player defeats the ninja, the game respawns ninjas with a new set of questions and correct answer, moving to the next level</li>
+                <li>Each time the player answers incorrectly, the questions and displayed answer are
+                    regenerated. The ninjas continue to move forward towards the player</li>
+                <li>The total time for completing this game is 90 seconds. The player wins if defeats five(5) levels within the given total time</li>
+                <li>If any ninja reaches the right side of the screen without being defeated by the player or 
+                    the game timer runs out before the player defeats all 5 levels</li>
+            </ol>
+        </div>
+        <audio loop src="audio/sound.mp3" autoplay></audio>
+        <script src="js/rules.js"></script>
+    </body>
+</html>
